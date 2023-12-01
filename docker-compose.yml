@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  vsftpd_wlan:
+    image: <docker_image>
+    container_name: vsftpd
+    env_file: 
+      - <env_file>
+    ports:
+      - "1022:1022"                         # ftp connection
+      - "26200-26210:26200-26210"           # data connection (in passive mode)
+    volumes:
+      - <local-folder>:/home/vsftpd         # FTP files
+      - <local-log-folder>:/var/log/vsftpd/ # logs
